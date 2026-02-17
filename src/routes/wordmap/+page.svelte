@@ -46,7 +46,7 @@
         const nodes = [];
         const edges = [];
         for (const word of values) {
-          nodes.push({ data: { id: word[0], label: word[1], img: $page.url.host === "sch.shtelo.org:5173" ? `/laul/${word[1]}.jpg` : `/laul/laul/${word[1]}.jpg` } });
+          nodes.push({ data: { id: word[0], label: word[1], img: $page.url.host === "localhost:5173" ? `/laul/${word[1]}.jpg` : `/laul/laul/${word[1]}.jpg` } });
           if (word[4] !== "-") {
             const relatedWords = word[4].split(',').map(w => w.trim());
             for (const relatedWord of relatedWords) {

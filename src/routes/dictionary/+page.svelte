@@ -27,7 +27,7 @@
   }
 
   function wordSrcFor(word: string) {
-    if ($page.url.host === "sch.shtelo.org:5173") {
+    if ($page.url.host === "localhost:5173") {
       return `/laul/${word}.jpg`
     } else {
       return `/laul/laul/${word}.jpg`
@@ -46,15 +46,51 @@
   });
 </script>
 
-<input type="text" placeholder="검색어를 입력하세요" bind:value={searchTerm} />
-
+<input type="text" placeholder="검색어를 입력하세요" bind:value={searchTerm} class="query" />
 {#if values}
-  <div>
+  <div class="results">
     {#each searchWord(searchTerm) as word}
-      <div>
-        <div><img src={wordSrcFor(word[1])}> {word[1]}</div>
-        <div>{word[3]}</div>
+      <div class="word">
+        <div class="title"><img src={wordSrcFor(word[1])}> {word[1]}</div>
+        <div class="meaning">{word[3]}</div>
       </div>
     {/each}
   </div>
 {/if}
+
+<style>
+  .query {
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+    margin-bottom: 16px;
+    font-size: 16px;
+  }
+  .results {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+  .word {
+    padding: 8px;
+    width: 200px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease;
+  }
+  .word:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  .title {
+    font-weight: bold;
+    margin-bottom: 4px;
+  }
+  .title img {
+    width: 1rem;
+    margin-right: 4px;
+  }
+  .meaning {
+    font-size: 14px;
+  }
+</style>
