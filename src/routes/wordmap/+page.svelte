@@ -1,12 +1,14 @@
 <script lang="ts">
   import cytoscape from 'cytoscape';
   import { onMount } from 'svelte';
-  import {page} from '$app/stores';
+  import { page } from '$app/stores';
+  import fcose from 'cytoscape-fcose';
+
+  cytoscape.use(fcose);
 
   onMount(() => {
     const cy = cytoscape({
       container: document.getElementById('cy'),
-      elements: [ ],
       style: [
         {
           selector: 'node',
@@ -26,13 +28,16 @@
             width: 3,
             'line-color': '#ccc',
             'target-arrow-color': '#ccc',
-            'target-arrow-shape': 'triangle'
+            'target-arrow-shape': 'triangle',
+            'curve-style': 'bezier'
           }
         }
       ],
       layout: {
-        name: 'grid',
-        rows: 2
+        name: 'fcose',
+        quality: 'proof',
+        randomize: true,
+        animate: true
       }
     });
 
