@@ -26,11 +26,11 @@
     return result;
   }
 
-  function wordSrcFor(word: string) {
+  function wordSrcFor(id: string) {
     if ($page.url.host === "localhost:5173") {
-      return `/laul/${word}.jpg`;
+      return `/laul/${id}.jpg`;
     } else {
-      return `/laul/laul/${word}.jpg`;
+      return `/laul/laul/${id}.jpg`;
     }
   }
 
@@ -58,7 +58,7 @@
   <div class="results">
     {#each searchWord(searchTerm) as word}
       <div class="word">
-        <div class="title"><img src={wordSrcFor(word[1])} /> {word[1]}</div>
+        <div class="title"><img src={wordSrcFor(word[0])} /> {word[1]}</div>
         <div class="meaning">{word[2]}</div>
       </div>
     {/each}

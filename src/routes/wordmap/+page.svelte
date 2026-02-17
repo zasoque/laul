@@ -59,8 +59,8 @@
               label: word[1],
               img:
                 $page.url.host === "localhost:5173"
-                  ? `/laul/${word[1]}.jpg`
-                  : `/laul/laul/${word[1]}.jpg`,
+                  ? `/laul/${word[0]}.jpg`
+                  : `/laul/laul/${word[0]}.jpg`,
             },
           });
           if (word[3] !== "-") {
