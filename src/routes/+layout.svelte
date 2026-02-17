@@ -9,11 +9,11 @@
 </svelte:head>
 
 <div class="container">
-  <div class="title"><a href="/">라울 메인페이지</a></div>
+  <div class="title"><a href="/laul">라울 메인페이지</a></div>
   <ul class="menu">
-    <li><a href="/dictionary">단어장</a></li>
-    <li><a href="/wordmap">단어 지도</a></li>
-    <li><a href="/grammar">문법</a></li>
+    <li><a href="/laul/dictionary">단어장</a></li>
+    <li><a href="/laul/wordmap">단어 지도</a></li>
+    <li><a href="/laul/grammar">문법</a></li>
   </ul>
   {@render children()}
 </div>
