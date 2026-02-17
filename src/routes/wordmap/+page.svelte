@@ -57,10 +57,7 @@
             data: {
               id: word[0],
               label: word[1],
-              img:
-                $page.url.host === "localhost:5173"
-                  ? `/laul/${word[0]}.jpg`
-                  : `/laul/laul/${word[0]}.jpg`,
+              img: `/laul/laul/${word[0]}.jpg`,
             },
           });
           if (word[3] !== "-") {

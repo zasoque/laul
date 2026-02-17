@@ -27,11 +27,7 @@
   }
 
   function wordSrcFor(id: string) {
-    if ($page.url.host === "localhost:5173") {
-      return `/laul/${id}.jpg`;
-    } else {
-      return `/laul/laul/${id}.jpg`;
-    }
+    return `/laul/laul/${id}.jpg`;
   }
 
   onMount(() => {
