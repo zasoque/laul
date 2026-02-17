@@ -70,4 +70,11 @@
   });
 </script>
 
-<div id="cy" style="width: 800px; height: 600px;"></div>
+<div id="cy"></div>
+
+<style>
+  #cy {
+    width: 100vw;
+    height: 100vh;
+  }
+</style>
