@@ -11,7 +11,6 @@
   function searchWord(term: string) {
     if (!values) return [];
     if (!term) return values;
-    if (term.length < 2) return values;
 
     const result = [];
     for (const word of values) {
