@@ -1,6 +1,7 @@
 <script lang="ts">
   import { onMount } from "svelte";
   import { page } from "$app/stores";
+  import Word from "$lib/components/Word.svelte";
 
   const KEY = "AIzaSyD-HRSmm2OBOf0ZpMh5kAfPFggwXLVPC6E";
   const SPREADSHEET_ID = "1vTe1JGdWz95CRl4-Kg8b5KVHZ25tLsqx1aSAOCxpT1A";
@@ -25,8 +26,8 @@
     return result;
   }
 
-  function wordSrcFor(id: string) {
-    return `/laul/laul/${id}.jpg`;
+  function getWord(id: string): Promise<string[] | null> {
+    return values.find((word) => word[0] === id) || null;
   }
 
   onMount(() => {
@@ -52,10 +53,7 @@
 {#if values}
   <div class="results">
     {#each searchWord(searchTerm) as word}
-      <div class="word">
-        <div class="title"><img src={wordSrcFor(word[0])} /> {word[1]}</div>
-        <div class="meaning">{word[2]}</div>
-      </div>
+      <Word {word} {getWord} />
     {/each}
   </div>
 {/if}
@@ -72,27 +70,5 @@
     display: flex;
     flex-wrap: wrap;
     gap: 16px;
-  }
-  .word {
-    padding: 8px;
-    width: 200px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    transition: box-shadow 0.3s ease;
-  }
-  .word:hover {
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  }
-  .title {
-    font-weight: bold;
-    margin-bottom: 4px;
-  }
-  .title img {
-    width: 1rem;
-    margin-right: 4px;
-  }
-  .meaning {
-    font-size: 14px;
   }
 </style>
