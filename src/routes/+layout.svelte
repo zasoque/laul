@@ -15,6 +15,12 @@
     <li><a href="/laul/wordmap">단어 지도</a></li>
     <li><a href="/laul/grammar">문법</a></li>
     <li><a href="https://github.com/zasoque/laul">GitHub 레포지토리</a></li>
+    <li>
+      <a
+        href="https://docs.google.com/spreadsheets/d/1vTe1JGdWz95CRl4-Kg8b5KVHZ25tLsqx1aSAOCxpT1A/edit?gid=0#gid=0"
+        >단어장 스프레드시트</a
+      >
+    </li>
   </ul>
   {@render children()}
 </div>
